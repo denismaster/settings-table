@@ -10,9 +10,23 @@ namespace SettingsTable.Tests
         #region AddVersion tests
 
         [Fact]
-        public void AddVersionShouldAddToVersionList()
+        public void AddVersionShouldThrowExceptionWhenNullArgumentIsProvided()
         {
             var table = new SettingsTable<string,string>();
+
+            Assert.NotNull(table.Versions);
+            Assert.Empty(table.Versions);
+
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                table.AddVersion(null);
+            });
+        }
+
+        [Fact]
+        public void AddVersionShouldAddToVersionList()
+        {
+            var table = new SettingsTable<string, string>();
 
             Assert.NotNull(table.Versions);
             Assert.Empty(table.Versions);
