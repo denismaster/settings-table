@@ -17,9 +17,9 @@ namespace SettingsTable
             Versions.Add(version);
         }
 
-        public void Clear()
-        {
-            Versions.Clear();
-        }
+        /// <summary>
+        /// Remove all versions from the table
+        /// </summary>
+        public void Clear() => Versions.Clear();
     }
 }

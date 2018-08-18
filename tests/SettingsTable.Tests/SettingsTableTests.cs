@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace SettingsTable.Tests
@@ -37,6 +35,23 @@ namespace SettingsTable.Tests
 
             Assert.NotEmpty(table.Versions);
             Assert.Collection(table.Versions, v => Assert.Equal(v, version));
+        }
+
+        #endregion
+
+        #region Clear tests
+
+        [Fact]
+        public void ClearShouldRemoveAllVersionsFromTable()
+        {
+            var table = new SettingsTable<string, string>();
+            table.AddVersion(new SettingsTableVersion<string, string>());
+
+            Assert.NotEmpty(table.Versions);
+
+            table.Clear();
+
+            Assert.Empty(table.Versions);
         }
 
         #endregion
