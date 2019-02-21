@@ -12,6 +12,6 @@ action "Build" {
 
 action "Test" {
   uses = "CodeDux/dotnet/2.1@master"
-  args = "test ./tests/SettingsTable.Tests/SettingsTable.Tests.csproj -c Release --no-build"
+  args = "test ./tests/SettingsTable.Tests/SettingsTable.Tests.csproj -c Release"
   needs = ["Build"]
 }
