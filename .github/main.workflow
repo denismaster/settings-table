@@ -5,15 +5,9 @@ workflow "PR: Build and test" {
   ]
 }
 
-action "PR opened or synchronized" {
-  uses = "denismaster/settings-table@master"
-  args = "action 'opened|synchronize'"
-}
-
 action "Build" {
   uses = "CodeDux/dotnet/2.1@master"
   args = "build -c Release"
-  needs = ["PR opened or synchronized"]
 }
 
 action "Test" {
